@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище GilmetdinovaHospitalModelContainer" CdmEntityContainer="GilmetdinovaHospitalEntities">
+    <EntitySetMapping Name="DOCTOR">
+      <EntityTypeMapping TypeName="GilmetdinovaHospitalModel.DOCTOR">
+        <MappingFragment StoreEntitySet="DOCTOR">
+          <ScalarProperty Name="DOCTOR_ID" ColumnName="DOCTOR_ID" />
+          <ScalarProperty Name="DOCTOR_SURNAME" ColumnName="DOCTOR_SURNAME" />
+          <ScalarProperty Name="DOCTTOR_NAME" ColumnName="DOCTTOR_NAME" />
+          <ScalarProperty Name="DOCTOR_PATRONYMIC" ColumnName="DOCTOR_PATRONYMIC" />
+          <ScalarProperty Name="DOCTOR_POST_ID" ColumnName="DOCTOR_POST_ID" />
+          <ScalarProperty Name="DOCTOR_EXPERIENCE_DATA" ColumnName="DOCTOR_EXPERIENCE_DATA" />
+          <ScalarProperty Name="DOCTOR_EXPERIENCE" ColumnName="DOCTOR_EXPERIENCE" />
+          <ScalarProperty Name="DOCTOR_SCIENTIFIC" ColumnName="DOCTOR_SCIENTIFIC" />
+          <ScalarProperty Name="DOCTOR_ADRESS" ColumnName="DOCTOR_ADRESS" />
+          <ScalarProperty Name="DOCTOR_SALARY" ColumnName="DOCTOR_SALARY" />
+          <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDICALHISTORY">
+      <EntityTypeMapping TypeName="GilmetdinovaHospitalModel.MEDICALHISTORY">
+        <MappingFragment StoreEntitySet="MEDICALHISTORY">
+          <ScalarProperty Name="MEDICALHISTORY_ID" ColumnName="MEDICALHISTORY_ID" />
+          <ScalarProperty Name="MEDICALHISTORY_DOCTOR_ID" ColumnName="MEDICALHISTORY_DOCTOR_ID" />
+          <ScalarProperty Name="MEDICALHISTORY_PATIENT_ID" ColumnName="MEDICALHISTORY_PATIENT_ID" />
+          <ScalarProperty Name="MEDICALHISTORY_DIAGNOSIS" ColumnName="MEDICALHISTORY_DIAGNOSIS" />
+          <ScalarProperty Name="MEDICALHISTORY_DATEOFFILLNESS" ColumnName="MEDICALHISTORY_DATEOFFILLNESS" />
+          <ScalarProperty Name="MEDICALHISTORY_DATEOFFRECOVERY" ColumnName="MEDICALHISTORY_DATEOFFRECOVERY" />
+          <ScalarProperty Name="MEDICALHISTORY_VIEWOFFTREARMENT" ColumnName="MEDICALHISTORY_VIEWOFFTREARMENT" />
+          <ScalarProperty Name="MEDICALHISTORY_OPERATION_ID" ColumnName="MEDICALHISTORY_OPERATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPERATION">
+      <EntityTypeMapping TypeName="GilmetdinovaHospitalModel.OPERATION">
+        <MappingFragment StoreEntitySet="OPERATION">
+          <ScalarProperty Name="OPERATION_ID" ColumnName="OPERATION_ID" />
+          <ScalarProperty Name="OPERATION_DESCRIPTION" ColumnName="OPERATION_DESCRIPTION" />
+          <ScalarProperty Name="OPERATION_DOCTOR_ID" ColumnName="OPERATION_DOCTOR_ID" />
+          <ScalarProperty Name="OPERATION_DATE" ColumnName="OPERATION_DATE" />
+          <ScalarProperty Name="OPERATION_RESULT" ColumnName="OPERATION_RESULT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PATIENT">
+      <EntityTypeMapping TypeName="GilmetdinovaHospitalModel.PATIENT">
+        <MappingFragment StoreEntitySet="PATIENT">
+          <ScalarProperty Name="PATIENT_ID" ColumnName="PATIENT_ID" />
+          <ScalarProperty Name="PATIENT_SURNAME" ColumnName="PATIENT_SURNAME" />
+          <ScalarProperty Name="PATIENT_NAME" ColumnName="PATIENT_NAME" />
+          <ScalarProperty Name="PATIENT_PATRONYMIC" ColumnName="PATIENT_PATRONYMIC" />
+          <ScalarProperty Name="PATIENT_ADRESS" ColumnName="PATIENT_ADRESS" />
+          <ScalarProperty Name="PATIENT_CITY" ColumnName="PATIENT_CITY" />
+          <ScalarProperty Name="PATIENT_BIRTHDATE" ColumnName="PATIENT_BIRTHDATE" />
+          <ScalarProperty Name="PATIENT_AGE" ColumnName="PATIENT_AGE" />
+          <ScalarProperty Name="PATIENT_GENDER" ColumnName="PATIENT_GENDER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="POST">
+      <EntityTypeMapping TypeName="GilmetdinovaHospitalModel.POST">
+        <MappingFragment StoreEntitySet="POST">
+          <ScalarProperty Name="POST_ID" ColumnName="POST_ID" />
+          <ScalarProperty Name="POST_NAME" ColumnName="POST_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TREATMENTLIST">
+      <EntityTypeMapping TypeName="GilmetdinovaHospitalModel.TREATMENTLIST">
+        <MappingFragment StoreEntitySet="TREATMENTLIST">
+          <ScalarProperty Name="TREATMENTLIST_ID" ColumnName="TREATMENTLIST_ID" />
+          <ScalarProperty Name="TREATMENTLIST_DATE" ColumnName="TREATMENTLIST_DATE" />
+          <ScalarProperty Name="TREATMENTLIST_MEDICALHISTORY_ID" ColumnName="TREATMENTLIST_MEDICALHISTORY_ID" />
+          <ScalarProperty Name="TREATMENTLIST_MEDICINES" ColumnName="TREATMENTLIST_MEDICINES" />
+          <ScalarProperty Name="TREATMENTLIST_TEMPERATURE" ColumnName="TREATMENTLIST_TEMPERATURE" />
+          <ScalarProperty Name="TREATMENTLIST_PRESSURE" ColumnName="TREATMENTLIST_PRESSURE" />
+          <ScalarProperty Name="TREATMENTLIST_PATIENTSCONDITION" ColumnName="TREATMENTLIST_PATIENTSCONDITION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

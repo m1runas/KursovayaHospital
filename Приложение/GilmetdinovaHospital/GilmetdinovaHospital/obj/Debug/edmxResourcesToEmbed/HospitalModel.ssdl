@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище GilmetdinovaHospitalModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DOCTOR">
+    <Key>
+      <PropertyRef Name="DOCTOR_ID" />
+    </Key>
+    <Property Name="DOCTOR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOCTOR_SURNAME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DOCTTOR_NAME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DOCTOR_PATRONYMIC" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DOCTOR_POST_ID" Type="int" Nullable="false" />
+    <Property Name="DOCTOR_EXPERIENCE_DATA" Type="date" />
+    <Property Name="DOCTOR_EXPERIENCE" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="DOCTOR_SCIENTIFIC" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DOCTOR_ADRESS" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DOCTOR_SALARY" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MainImagePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MEDICALHISTORY">
+    <Key>
+      <PropertyRef Name="MEDICALHISTORY_ID" />
+    </Key>
+    <Property Name="MEDICALHISTORY_ID" Type="int" Nullable="false" />
+    <Property Name="MEDICALHISTORY_DOCTOR_ID" Type="int" Nullable="false" />
+    <Property Name="MEDICALHISTORY_PATIENT_ID" Type="int" Nullable="false" />
+    <Property Name="MEDICALHISTORY_DIAGNOSIS" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MEDICALHISTORY_DATEOFFILLNESS" Type="date" Nullable="false" />
+    <Property Name="MEDICALHISTORY_DATEOFFRECOVERY" Type="date" Nullable="false" />
+    <Property Name="MEDICALHISTORY_VIEWOFFTREARMENT" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="MEDICALHISTORY_OPERATION_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="OPERATION">
+    <Key>
+      <PropertyRef Name="OPERATION_ID" />
+    </Key>
+    <Property Name="OPERATION_ID" Type="int" Nullable="false" />
+    <Property Name="OPERATION_DESCRIPTION" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OPERATION_DOCTOR_ID" Type="int" Nullable="false" />
+    <Property Name="OPERATION_DATE" Type="date" Nullable="false" />
+    <Property Name="OPERATION_RESULT" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PATIENT">
+    <Key>
+      <PropertyRef Name="PATIENT_ID" />
+    </Key>
+    <Property Name="PATIENT_ID" Type="int" Nullable="false" />
+    <Property Name="PATIENT_SURNAME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PATIENT_NAME" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PATIENT_PATRONYMIC" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PATIENT_ADRESS" Type="nvarchar(max)" />
+    <Property Name="PATIENT_CITY" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PATIENT_BIRTHDATE" Type="date" Nullable="false" />
+    <Property Name="PATIENT_AGE" Type="int" StoreGeneratedPattern="Computed" />
+    <Property Name="PATIENT_GENDER" Type="nvarchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="POST">
+    <Key>
+      <PropertyRef Name="POST_ID" />
+    </Key>
+    <Property Name="POST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="POST_NAME" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TREATMENTLIST">
+    <Key>
+      <PropertyRef Name="TREATMENTLIST_ID" />
+    </Key>
+    <Property Name="TREATMENTLIST_ID" Type="int" Nullable="false" />
+    <Property Name="TREATMENTLIST_DATE" Type="date" Nullable="false" />
+    <Property Name="TREATMENTLIST_MEDICALHISTORY_ID" Type="int" Nullable="false" />
+    <Property Name="TREATMENTLIST_MEDICINES" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TREATMENTLIST_TEMPERATURE" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="TREATMENTLIST_PRESSURE" Type="nvarchar" MaxLength="10" />
+    <Property Name="TREATMENTLIST_PATIENTSCONDITION" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK__MEDICALHI__MEDIC__2C3393D0">
+    <End Role="DOCTOR" Type="Self.DOCTOR" Multiplicity="1" />
+    <End Role="MEDICALHISTORY" Type="Self.MEDICALHISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCTOR">
+        <PropertyRef Name="DOCTOR_ID" />
+      </Principal>
+      <Dependent Role="MEDICALHISTORY">
+        <PropertyRef Name="MEDICALHISTORY_DOCTOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEDICALHI__MEDIC__2D27B809">
+    <End Role="PATIENT" Type="Self.PATIENT" Multiplicity="1" />
+    <End Role="MEDICALHISTORY" Type="Self.MEDICALHISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PATIENT">
+        <PropertyRef Name="PATIENT_ID" />
+      </Principal>
+      <Dependent Role="MEDICALHISTORY">
+        <PropertyRef Name="MEDICALHISTORY_PATIENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEDICALHI__MEDIC__2E1BDC42">
+    <End Role="OPERATION" Type="Self.OPERATION" Multiplicity="0..1" />
+    <End Role="MEDICALHISTORY" Type="Self.MEDICALHISTORY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OPERATION">
+        <PropertyRef Name="OPERATION_ID" />
+      </Principal>
+      <Dependent Role="MEDICALHISTORY">
+        <PropertyRef Name="MEDICALHISTORY_OPERATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OPERATION__OPERA__2F10007B">
+    <End Role="DOCTOR" Type="Self.DOCTOR" Multiplicity="1" />
+    <End Role="OPERATION" Type="Self.OPERATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCTOR">
+        <PropertyRef Name="DOCTOR_ID" />
+      </Principal>
+      <Dependent Role="OPERATION">
+        <PropertyRef Name="OPERATION_DOCTOR_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TREATMENT__TREAT__300424B4">
+    <End Role="MEDICALHISTORY" Type="Self.MEDICALHISTORY" Multiplicity="1" />
+    <End Role="TREATMENTLIST" Type="Self.TREATMENTLIST" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICALHISTORY">
+        <PropertyRef Name="MEDICALHISTORY_ID" />
+      </Principal>
+      <Dependent Role="TREATMENTLIST">
+        <PropertyRef Name="TREATMENTLIST_MEDICALHISTORY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCTOR_POST">
+    <End Role="POST" Type="Self.POST" Multiplicity="1" />
+    <End Role="DOCTOR" Type="Self.DOCTOR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="POST">
+        <PropertyRef Name="POST_ID" />
+      </Principal>
+      <Dependent Role="DOCTOR">
+        <PropertyRef Name="DOCTOR_POST_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище GilmetdinovaHospitalModelContainer">
+    <EntitySet Name="DOCTOR" EntityType="Self.DOCTOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MEDICALHISTORY" EntityType="Self.MEDICALHISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPERATION" EntityType="Self.OPERATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PATIENT" EntityType="Self.PATIENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="POST" EntityType="Self.POST" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TREATMENTLIST" EntityType="Self.TREATMENTLIST" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__MEDICALHI__MEDIC__2C3393D0" Association="Self.FK__MEDICALHI__MEDIC__2C3393D0">
+      <End Role="DOCTOR" EntitySet="DOCTOR" />
+      <End Role="MEDICALHISTORY" EntitySet="MEDICALHISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEDICALHI__MEDIC__2D27B809" Association="Self.FK__MEDICALHI__MEDIC__2D27B809">
+      <End Role="PATIENT" EntitySet="PATIENT" />
+      <End Role="MEDICALHISTORY" EntitySet="MEDICALHISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEDICALHI__MEDIC__2E1BDC42" Association="Self.FK__MEDICALHI__MEDIC__2E1BDC42">
+      <End Role="OPERATION" EntitySet="OPERATION" />
+      <End Role="MEDICALHISTORY" EntitySet="MEDICALHISTORY" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OPERATION__OPERA__2F10007B" Association="Self.FK__OPERATION__OPERA__2F10007B">
+      <End Role="DOCTOR" EntitySet="DOCTOR" />
+      <End Role="OPERATION" EntitySet="OPERATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TREATMENT__TREAT__300424B4" Association="Self.FK__TREATMENT__TREAT__300424B4">
+      <End Role="MEDICALHISTORY" EntitySet="MEDICALHISTORY" />
+      <End Role="TREATMENTLIST" EntitySet="TREATMENTLIST" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCTOR_POST" Association="Self.FK_DOCTOR_POST">
+      <End Role="POST" EntitySet="POST" />
+      <End Role="DOCTOR" EntitySet="DOCTOR" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

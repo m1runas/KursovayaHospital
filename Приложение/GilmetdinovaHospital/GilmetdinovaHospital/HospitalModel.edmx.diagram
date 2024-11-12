@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0e75b22bddc4c2ba17837cec8fa3ce8" Name="Diagram1">
+        <EntityTypeShape EntityType="GilmetdinovaHospitalModel.DOCTOR" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GilmetdinovaHospitalModel.MEDICALHISTORY" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GilmetdinovaHospitalModel.OPERATION" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GilmetdinovaHospitalModel.PATIENT" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GilmetdinovaHospitalModel.POST" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GilmetdinovaHospitalModel.TREATMENTLIST" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="GilmetdinovaHospitalModel.FK__MEDICALHI__MEDIC__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="GilmetdinovaHospitalModel.FK__OPERATION__OPERA__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="GilmetdinovaHospitalModel.FK_DOCTOR_POST" ManuallyRouted="false" />
+        <AssociationConnector Association="GilmetdinovaHospitalModel.FK__MEDICALHI__MEDIC__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="GilmetdinovaHospitalModel.FK__MEDICALHI__MEDIC__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="GilmetdinovaHospitalModel.FK__TREATMENT__TREAT__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
